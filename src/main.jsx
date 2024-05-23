@@ -1,30 +1,26 @@
 import React from 'react'
+import App from './App.jsx'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './App.jsx'
 import Cabecalho from './componente-cabecalho/cabecalho.jsx'
 import ConsultaRAM from './consulta-ram/Consulta-ram.jsx'
+import InfoNaTela from './consulta-ram/naTela.jsx'
+import Tarefas from './tarefas/tarefas-componente.jsx';
 import './index.css'
-import Tarefas from './tarefas/tarefas-componente.jsx'
 
-const routes = createBrowserRouter([ // []lista
-  { // {} objeto
-    
-    //Rotas
+const routes = createBrowserRouter([
+  {
+
     path: '/',
-    element: <Cabecalho />, //Página principal
-    children: [ //Filha
-      { 
-        path: '/tarefas',
-        element: <Tarefas />
-      },
-      {
-        path: '/rota2',
-        element: <h1>Minha rota 2</h1>
-      },
+    element: <Cabecalho />,
+    children: [
       {
         path: '/consulta-ram',
         element: <ConsultaRAM />
+      },
+      {
+        path: '/informacao/:id',
+        element: <InfoNaTela />
       }
     ]
 
